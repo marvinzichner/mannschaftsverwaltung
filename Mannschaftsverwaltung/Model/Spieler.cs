@@ -76,6 +76,11 @@ namespace Mannschaftsverwaltung
         {
             return this.SpielerRolle;
         }
+
+        public virtual void sayHello()
+        {
+            Console.WriteLine("  - " + this.Name + " (" + this.SpielerNummer + ")");
+        }
         #endregion
     }
 }

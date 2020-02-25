@@ -1,0 +1,36 @@
+﻿<Properties StartupConfiguration="{58B1DC71-F148-44A0-8CFB-5D8DC6A2AA84}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Mannschaftsverwaltung/Model/Spieler.cs">
+    <Files>
+      <File FileName="Mannschaftsverwaltung/main.cs" Line="80" Column="40" />
+      <File FileName="Mannschaftsverwaltung/Model/Person.cs" Line="50" Column="1" />
+      <File FileName="Mannschaftsverwaltung/Model/Trainer.cs" Line="46" Column="23" />
+      <File FileName="Mannschaftsverwaltung/Model/Physiotherapeut.cs" Line="46" Column="23" />
+      <File FileName="Mannschaftsverwaltung/Model/Mannschaft.cs" Line="96" Column="43" />
+      <File FileName="Mannschaftsverwaltung/Model/SearchTerm.cs" Line="6" Column="24" />
+      <File FileName="Mannschaftsverwaltung/Model/Spieler.cs" Line="82" Column="35" />
+      <File FileName="Mannschaftsverwaltung/Model/FussballSpieler.cs" Line="64" Column="10" />
+      <File FileName="Mannschaftsverwaltung/Model/HandballSpieler.cs" Line="63" Column="98" />
+      <File FileName="Mannschaftsverwaltung/Model/TennisSpieler.cs" Line="61" Column="24" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Mannschaftsverwaltung" expanded="True">
+            <Node name="Mannschaftsverwaltung" expanded="True">
+              <Node name="Model" expanded="True">
+                <Node name="Spieler.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Mannschaftsverwaltung PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

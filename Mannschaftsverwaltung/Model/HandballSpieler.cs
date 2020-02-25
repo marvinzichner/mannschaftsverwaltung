@@ -55,6 +55,13 @@ namespace Mannschaftsverwaltung
             this.IsLeftHand = b;
             return this;
         }
+
+        public override void sayHello()
+        {
+            base.sayHello();
+            Console.WriteLine("    Ich habe auf dem Feld die Position " + this.SpielerRolle);
+            Console.WriteLine("    Verwende ich beim Werfen die linke Hand? " + this.IsLeftHand);
+        }
         #endregion
     }
 }

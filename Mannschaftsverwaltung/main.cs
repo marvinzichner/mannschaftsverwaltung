@@ -24,67 +24,60 @@ namespace Mannschaftsverwaltung
 
             Marvin
                 .name("Marvin Fussball")
+                .toFussballSpieler()
                 .isLeftFeet(true)
                 .spielerNummer(12)
                 .spielerRolle(SpielerRolle.STUERMER);
 
             Henry
                 .name("Henry Handball")
+                .toHandballSpieler()
                 .isLeftHand(false)
                 .spielerNummer(2)
                 .spielerRolle(SpielerRolle.UNDEFINED);
 
             Lars
                 .name("Lars Tennis")
+                .toTennisSpieler()
                 .isLeftHand(true)
                 .spielerNummer(1)
                 .spielerRolle(SpielerRolle.UNDEFINED);
 
             John
                 .name("John Reginald Trainer")
+                .toTrainer()
                 .hasLicense(true)
                 .sportArt(SportArt.FUSSBALL);
 
             Thomas
                 .name("Thomas Britt")
+                .toPhysiotherapeut()
                 .hasLicense(true)
                 .sportArt(SportArt.FUSSBALL);
 
-            Koeln.Personen.Add(Marvin);
-            Koeln.Personen.Add(Henry);
-            Koeln.Personen.Add(Lars);
-            Koeln.Personen.Add(John);
-            Koeln.Personen.Add(Thomas);
+            Koeln
+                .add(Marvin)
+                .add(Henry)
+                .add(Lars)
+                .add(John)
+                .add(Thomas);
 
             Console.WriteLine("Mannschaft " + Koeln.Name);
-            foreach (Person person in Koeln.Personen)
+            foreach(Person p in Koeln.find(Koeln.pattern(SearchTerm.FUSSBALLSPIELER)))
             {
-                if (person.isFussballSpieler())
-                {
-                    Console.WriteLine( "  - " +
-                        person.toFussballSpieler().Name 
-                        + " hat die Feldposition " 
-                        + person.toFussballSpieler().SpielerRolle);
-                }
-                else if (person.isTennisSpieler())
-                {
-                    Console.WriteLine("  - " +
-                        person.toTennisSpieler().Name
-                        + " - Linker Arm? "
-                        + person.toTennisSpieler().IsLeftHand);
-                }
-                else if (person.isHandballSpieler())
-                {
-                    Console.WriteLine("  - " +
-                        person.toHandballSpieler().Name
-                        + " - Linker Arm? "
-                        + person.toHandballSpieler().IsLeftHand);
-                }
-                else
-                {
-                    Console.WriteLine("  - anderes Mitglied: " +
-                        person.Name);
-                }
+                p.toFussballSpieler().sayHello();
+            }
+
+            Console.WriteLine("");
+            foreach (Person p in Koeln.find(Koeln.pattern(SearchTerm.HANDBALLSPIELER)))
+            {
+                p.toHandballSpieler().sayHello();
+            }
+
+            Console.WriteLine("");
+            foreach (Person p in Koeln.find(Koeln.pattern(SearchTerm.TENNISSPIELER)))
+            {
+                p.toTennisSpieler().sayHello();
             }
 
             Console.ReadKey();

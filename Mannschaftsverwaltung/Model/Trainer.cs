@@ -44,11 +44,6 @@ namespace Mannschaftsverwaltung
         #endregion
 
         #region Worker
-        public Trainer name(string s)
-        {
-            this.Name = s;
-            return this;
-        }
         public Trainer hasLicense(bool b)
         {
             this.HasLicense = b;

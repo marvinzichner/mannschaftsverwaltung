@@ -55,6 +55,14 @@ namespace Mannschaftsverwaltung
             this.IsLeftHand = b;
             return this;
         }
+
+        public override void sayHello()
+        {
+            base.sayHello();
+            Console.WriteLine("    Als Tennisspieler habe ich keine klare definierte Rolle");
+            Console.WriteLine("    Zum Schlagen verwende ich die linke Hand? " + this.IsLeftHand);
+            Console.WriteLine("    Tennis ist meine Leidenschaft");
+        }
         #endregion
     }
 }

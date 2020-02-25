@@ -44,11 +44,6 @@ namespace Mannschaftsverwaltung
         #endregion
 
         #region Worker
-        public Physiotherapeut name(string s)
-        {
-            this.Name = s;
-            return this;
-        }
         public Physiotherapeut hasLicense(bool b)
         {
             this.HasLicense = b;

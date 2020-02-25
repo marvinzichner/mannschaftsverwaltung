@@ -47,7 +47,60 @@ namespace Mannschaftsverwaltung
         #endregion
 
         #region Worker
+        public Mannschaft add(Person p)
+        {
+            this.Personen.Add(p);
+            return this;
+        }
+        public Mannschaft addRange(List<Person> ps)
+        {
+            foreach(Person p in ps) { 
+                this.Personen.Add(p);
+            }
+            return this;
+        }
 
+        public Mannschaft pattern(SearchTerm s)
+        {
+            List<Person> persons = new List<Person>();
+            Mannschaft mannschaft = new Mannschaft(this);
+
+            foreach(Person p in mannschaft.Personen) {
+                if (s == SearchTerm.ALL)
+                {
+                    persons.Add(p);
+                }
+                else if (s == SearchTerm.FUSSBALLSPIELER)
+                {
+                    if (p.isFussballSpieler())
+                    {
+                        persons.Add(p);
+                    }
+                }
+                else if (s == SearchTerm.HANDBALLSPIELER)
+                {
+                    if (p.isHandballSpieler())
+                    {
+                        persons.Add(p);
+                    }
+                }
+                else if (s == SearchTerm.TENNISSPIELER)
+                {
+                    if (p.isTennisSpieler())
+                    {
+                        persons.Add(p);
+                    }
+                }
+            }
+
+            mannschaft.Personen = persons;
+            return mannschaft;
+        }
+
+        public List<Person> find(Mannschaft m)
+        {
+            return m.Personen;
+        }
         #endregion
     }
 }

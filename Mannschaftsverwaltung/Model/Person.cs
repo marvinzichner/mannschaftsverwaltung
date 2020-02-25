@@ -66,6 +66,14 @@ namespace Mannschaftsverwaltung
         {
             return (HandballSpieler)this;
         }
+        public Trainer toTrainer()
+        {
+            return (Trainer)this;
+        }
+        public Physiotherapeut toPhysiotherapeut()
+        {
+            return (Physiotherapeut)this;
+        }
 
         public virtual Person name(string s)
         {

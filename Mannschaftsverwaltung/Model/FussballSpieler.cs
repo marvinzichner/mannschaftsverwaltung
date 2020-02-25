@@ -55,6 +55,13 @@ namespace Mannschaftsverwaltung
             this.IsLeftFeet = b;
             return this;
         }
+
+        public override void sayHello()
+        {
+            base.sayHello();
+            Console.WriteLine("    Ich habe auf dem Feld die Position " + this.SpielerRolle);
+            Console.WriteLine("    Mein starker Fuss ist Links? " + this.IsLeftFeet);
+        }
         #endregion
     }
 }
