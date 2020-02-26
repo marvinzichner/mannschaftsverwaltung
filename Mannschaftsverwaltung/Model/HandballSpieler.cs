@@ -72,6 +72,25 @@ namespace Mannschaftsverwaltung
             Console.WriteLine("    Ich habe auf dem Feld die Position " + this.SpielerRolle);
             Console.WriteLine("    Verwende ich beim Werfen die linke Hand? " + this.IsLeftHand);
         }
+        public override int compareByErfolg(Spieler s)
+        {
+            int compareResult = -9999;
+
+            if (this.SpielSiege < s.toHandballSpieler().SpielSiege)
+            {
+                compareResult = -1;
+            }
+            else if (this.SpielSiege == s.toHandballSpieler().SpielSiege)
+            {
+                compareResult = 0;
+            }
+            else if (this.SpielSiege < s.toHandballSpieler().SpielSiege)
+            {
+                compareResult = 1;
+            }
+
+            return compareResult;
+        }
         #endregion
     }
 }

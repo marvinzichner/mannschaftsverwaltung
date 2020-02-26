@@ -102,7 +102,11 @@ namespace Mannschaftsverwaltung
             return m.Personen;
         }
 
-       
+        public List<Person> sortByErfolg(SearchTerm searchTerm)
+        {
+            List<Person> persons = new List<Person>();
+            return persons;
+        }
         #endregion
     }
 }

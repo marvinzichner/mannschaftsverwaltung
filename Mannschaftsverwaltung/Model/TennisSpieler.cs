@@ -73,6 +73,26 @@ namespace Mannschaftsverwaltung
             Console.WriteLine("    Zum Schlagen verwende ich die linke Hand? " + this.IsLeftHand);
             Console.WriteLine("    Tennis ist meine Leidenschaft");
         }
+
+        public override int compareByErfolg(Spieler s)
+        {
+            int compareResult = -9999;
+
+            if (this.SpielSiege < s.toTennisSpieler().SpielSiege)
+            {
+                compareResult = -1;
+            }
+            else if (this.SpielSiege == s.toTennisSpieler().SpielSiege)
+            {
+                compareResult = 0;
+            }
+            else if (this.SpielSiege < s.toTennisSpieler().SpielSiege)
+            {
+                compareResult = 1;
+            }
+
+            return compareResult;
+        }
         #endregion
     }
 }
