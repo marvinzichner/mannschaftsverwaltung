@@ -24,3 +24,10 @@ C:/Users/zichner_marvin/Desktop/tmp/Mannschaftsverwaltung/Mannschaftsverwaltung/
 /Users/marvinzichner/Documents/dev/repo/mannschaftsverwaltung/Mannschaftsverwaltung/bin/Debug/Mannschaftsverwaltung.exe.config
 /Users/marvinzichner/Documents/dev/repo/mannschaftsverwaltung/Mannschaftsverwaltung/bin/Debug/Mannschaftsverwaltung.exe
 /Users/marvinzichner/Documents/dev/repo/mannschaftsverwaltung/Mannschaftsverwaltung/bin/Debug/Mannschaftsverwaltung.pdb
+C:\Users\zichner_marvin\Desktop\REPO\mannschaftsverwaltung\Mannschaftsverwaltung\bin\Debug\Mannschaftsverwaltung.exe.config
+C:\Users\zichner_marvin\Desktop\REPO\mannschaftsverwaltung\Mannschaftsverwaltung\bin\Debug\Mannschaftsverwaltung.exe
+C:\Users\zichner_marvin\Desktop\REPO\mannschaftsverwaltung\Mannschaftsverwaltung\bin\Debug\Mannschaftsverwaltung.pdb
+C:\Users\zichner_marvin\Desktop\REPO\mannschaftsverwaltung\Mannschaftsverwaltung\obj\Debug\Mannschaftsverwaltung.csprojAssemblyReference.cache
+C:\Users\zichner_marvin\Desktop\REPO\mannschaftsverwaltung\Mannschaftsverwaltung\obj\Debug\Mannschaftsverwaltung.csproj.CoreCompileInputs.cache
+C:\Users\zichner_marvin\Desktop\REPO\mannschaftsverwaltung\Mannschaftsverwaltung\obj\Debug\Mannschaftsverwaltung.exe
+C:\Users\zichner_marvin\Desktop\REPO\mannschaftsverwaltung\Mannschaftsverwaltung\obj\Debug\Mannschaftsverwaltung.pdb

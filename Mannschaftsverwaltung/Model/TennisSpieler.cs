@@ -15,27 +15,32 @@ namespace Mannschaftsverwaltung
     {
         #region Eigenschaften
         bool _isLeftHand;
+        int _SpielSiege;
         #endregion
 
         #region Accessoren / Modifier
         public bool IsLeftHand { get => _isLeftHand; set => _isLeftHand = value; }
+        public int SpielSiege { get => _SpielSiege; set => _SpielSiege = value; }
         #endregion
 
         #region Konstruktoren
         public TennisSpieler():base()
         {
             IsLeftHand = true;
+            SpielSiege = 0;
         }
         public TennisSpieler(string name, int number, bool isLeftHand) 
             : base(name, number, SportArt.HANDBALL, SpielerRolle.UNDEFINED)
         {
             IsLeftHand = isLeftHand;
+            SpielSiege = 0;
         }
 
         public TennisSpieler(HandballSpieler hs) 
             : base(hs)
         {
             IsLeftHand = hs.IsLeftHand;
+            SpielSiege = hs.SpielSiege;
         }
         #endregion
 
@@ -43,6 +48,11 @@ namespace Mannschaftsverwaltung
         public TennisSpieler spielerNummer(int i)
         {
             this.SpielerNummer = i;
+            return this;
+        }
+        public TennisSpieler spielSiege(int i)
+        {
+            this.SpielSiege = i;
             return this;
         }
         public TennisSpieler spielerRolle(SpielerRolle sr)

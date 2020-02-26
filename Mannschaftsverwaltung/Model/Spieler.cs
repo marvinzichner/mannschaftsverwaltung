@@ -57,6 +57,7 @@ namespace Mannschaftsverwaltung
             this.SpielerNummer = i;
             return this;
         }
+
         public Spieler sportArt(SportArt sa)
         {
             this.SportArt = sa;
@@ -81,6 +82,8 @@ namespace Mannschaftsverwaltung
         {
             Console.WriteLine("  - " + this.Name + " (" + this.SpielerNummer + ")");
         }
+
+        public abstract int compareByErfolg(Spieler s);
         #endregion
     }
 }
