@@ -66,14 +66,28 @@ namespace Mannschaftsverwaltung
         {
             return (HandballSpieler)this;
         }
+        public bool isTrainer()
+        {
+            return ReferenceEquals(typeof(Trainer), this.GetType());
+        }
         public Trainer toTrainer()
         {
             return (Trainer)this;
+        }
+        public bool isPhysiotherapeut()
+        {
+            return ReferenceEquals(typeof(Physiotherapeut), this.GetType());
         }
         public Physiotherapeut toPhysiotherapeut()
         {
             return (Physiotherapeut)this;
         }
+        public Spieler toGenericSpieler()
+        {
+            return (Spieler)this;
+        }
+
+        public abstract int getSpielSiege();
 
         public virtual Person name(string s)
         {

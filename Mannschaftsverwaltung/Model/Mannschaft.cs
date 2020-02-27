@@ -60,7 +60,7 @@ namespace Mannschaftsverwaltung
             return this;
         }
 
-        public Mannschaft pattern(SearchTerm s)
+        public Mannschaft pattern(SearchTerm s, OrderBy ob)
         {
             List<Person> persons = new List<Person>();
             Mannschaft mannschaft = new Mannschaft(this);
@@ -89,6 +89,25 @@ namespace Mannschaftsverwaltung
                     if (p.isTennisSpieler())
                     {
                         persons.Add(p);
+                    }
+                }
+            }
+
+            if(ob == OrderBy.ERFOLG_ASC)
+            {
+                for(int i = 0; i < persons.Count; i++)
+                {
+                    for (int j = 0; j < persons.Count; j++)
+                    {
+                        Person p1 = persons[i];
+                        Person p2 = persons[j];
+
+                        if(p1.getSpielSiege() < p2.getSpielSiege()) {
+                            int idx1 = persons.IndexOf(p1);
+                            int idx2 = persons.IndexOf(p2);
+                            persons[idx1] = p2;
+                            persons[idx2] = p1;
+                        }
                     }
                 }
             }

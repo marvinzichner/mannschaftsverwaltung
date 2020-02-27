@@ -17,12 +17,14 @@ namespace Mannschaftsverwaltung
         private int _spielerNummer;
         private SportArt _sportArt;
         private SpielerRolle _spielerRolle;
+        private int _SpielSiege;
         #endregion
 
         #region Accessoren / Modifier
         public int SpielerNummer { get => _spielerNummer; set => _spielerNummer = value; }
         public SportArt SportArt { get => _sportArt; set => _sportArt = value; }
         public SpielerRolle SpielerRolle { get => _spielerRolle; set => _spielerRolle = value; }
+        public int SpielSiege { get => _SpielSiege; set => _SpielSiege = value; }
         #endregion
 
         #region Konstruktoren
@@ -30,16 +32,18 @@ namespace Mannschaftsverwaltung
             :base()
         {
             SpielerNummer = -9999;
-            SportArt = SportArt.UNDEFINED;
-            SpielerRolle = SpielerRolle.UNDEFINED;
+            SportArt = SportArt.KEINE;
+            SpielerRolle = SpielerRolle.KEINE;
+            SpielSiege = 0;
         }
 
-        public Spieler(string name, int number, SportArt sportArt, SpielerRolle spielerRolle)
+        public Spieler(string name, int number, SportArt sportArt, SpielerRolle spielerRolle, int spielSiege)
             :base(name)
         {
             SpielerNummer = number;
             SportArt = sportArt;
             SpielerRolle = spielerRolle;
+            SpielSiege = spielSiege;
         }
 
         public Spieler(Spieler s)
@@ -48,6 +52,7 @@ namespace Mannschaftsverwaltung
             SpielerNummer = s.SpielerNummer;
             SportArt = s.SportArt;
             SpielerRolle = s.SpielerRolle;
+            SpielSiege = s.SpielSiege;
         }
         #endregion
 

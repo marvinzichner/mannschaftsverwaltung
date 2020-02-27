@@ -1,5 +1,6 @@
 ﻿public enum SportArt {
-    UNDEFINED = 0,
+    KEINE = 0,
     FUSSBALL = 1,
-    HANDBALL = 2
+    HANDBALL = 2,
+    TENNIS = 3
 }

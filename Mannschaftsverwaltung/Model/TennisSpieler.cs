@@ -30,7 +30,7 @@ namespace Mannschaftsverwaltung
             SpielSiege = 0;
         }
         public TennisSpieler(string name, int number, bool isLeftHand) 
-            : base(name, number, SportArt.HANDBALL, SpielerRolle.UNDEFINED)
+            : base(name, number, SportArt.HANDBALL, SpielerRolle.KEINE, 0)
         {
             IsLeftHand = isLeftHand;
             SpielSiege = 0;
@@ -92,6 +92,10 @@ namespace Mannschaftsverwaltung
             }
 
             return compareResult;
+        }
+        public override int getSpielSiege()
+        {
+            return this.SpielSiege;
         }
         #endregion
     }

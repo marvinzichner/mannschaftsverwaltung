@@ -30,7 +30,7 @@ namespace Mannschaftsverwaltung
             SpielSiege = 0;
         }
         public FussballSpieler(string name, int number, bool isLeftFeet, SpielerRolle spielerRolle, int siege) 
-            : base(name, number, SportArt.FUSSBALL, spielerRolle)
+            : base(name, number, SportArt.FUSSBALL, spielerRolle, siege)
         {
             IsLeftFeet = isLeftFeet;
             SpielSiege = siege;
@@ -91,6 +91,11 @@ namespace Mannschaftsverwaltung
             }
 
             return compareResult;
+        }
+
+        public override int getSpielSiege()
+        {
+            return this.SpielSiege;
         }
         #endregion
     }

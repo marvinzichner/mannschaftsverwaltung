@@ -60,6 +60,10 @@ namespace Mannschaftsverwaltung
             return this.SportArt;
         }
 
+        public override int getSpielSiege()
+        {
+            return -1;
+        }
         #endregion
     }
 }
