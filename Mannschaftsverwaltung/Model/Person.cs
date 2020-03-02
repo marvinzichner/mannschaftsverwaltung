@@ -87,6 +87,35 @@ namespace Mannschaftsverwaltung
             return (Spieler)this;
         }
 
+        public int compareByName(Person p)
+        {
+            int result = -2;
+
+            string thisName = this.Name.Substring(0, 1);
+            string otherName = p.Name.Substring(0, 1);
+
+            if (getLetterCode(thisName) < getLetterCode(otherName))
+            {
+                result = -1;
+            }
+            else if (getLetterCode(thisName) == getLetterCode(otherName))
+            {
+                result = 0;
+            }
+            else if (getLetterCode(thisName) > getLetterCode(otherName))
+            {
+                result = 1;
+            }
+
+            return result;
+        }
+
+        private int getLetterCode(string s)
+        {
+            char[] c = s.ToCharArray();
+            return char.ToUpper(c[0]) - 64;
+        }
+
         public abstract int getSpielSiege();
 
         public virtual Person name(string s)

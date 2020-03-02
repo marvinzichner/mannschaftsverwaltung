@@ -76,7 +76,7 @@ namespace Mannschaftsverwaltung
             Console.WriteLine(String.Format(PATTERN, "Name", "Nr", "Art", "Rolle", "XP", "Lic."));
             Console.WriteLine("--------------------------------------------------------------");
 
-            foreach(Person p in Koeln.find(Koeln.pattern(SearchTerm.ALL, OrderBy.ERFOLG_ASC)))
+            foreach(Person p in Koeln.find(Koeln.pattern(SearchTerm.ALL, OrderBy.NAME_ASC)))
             {
                 if (p.isFussballSpieler())
                 {

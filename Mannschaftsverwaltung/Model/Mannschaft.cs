@@ -112,6 +112,26 @@ namespace Mannschaftsverwaltung
                 }
             }
 
+            if(ob == OrderBy.NAME_ASC)
+            {
+                for (int i = 0; i < persons.Count; i++)
+                {
+                    for (int j = 0; j < persons.Count; j++)
+                    {
+                        Person p1 = persons[i];
+                        Person p2 = persons[j];
+
+                        if (p1.compareByName(p2) < 0)
+                        {
+                            int idx1 = persons.IndexOf(p1);
+                            int idx2 = persons.IndexOf(p2);
+                            persons[idx1] = p2;
+                            persons[idx2] = p1;
+                        }
+                    }
+                }
+            }
+
             mannschaft.Personen = persons;
             return mannschaft;
         }
