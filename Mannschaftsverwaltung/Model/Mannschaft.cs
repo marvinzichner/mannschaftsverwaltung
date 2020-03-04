@@ -60,7 +60,7 @@ namespace Mannschaftsverwaltung
             return this;
         }
 
-        public Mannschaft pattern(SearchTerm s, OrderBy ob)
+        public List<Person> searchPattern(SearchTerm s, OrderBy ob)
         {
             List<Person> persons = new List<Person>();
             Mannschaft mannschaft = new Mannschaft(this);
@@ -133,12 +133,7 @@ namespace Mannschaftsverwaltung
             }
 
             mannschaft.Personen = persons;
-            return mannschaft;
-        }
-
-        public List<Person> find(Mannschaft m)
-        {
-            return m.Personen;
+            return mannschaft.Personen;
         }
 
         public List<Person> sortByErfolg(SearchTerm searchTerm)

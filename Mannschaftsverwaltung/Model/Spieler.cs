@@ -89,6 +89,8 @@ namespace Mannschaftsverwaltung
         }
 
         public abstract int compareByErfolg(Spieler s);
+
+        public override abstract int compareByName(Person p);
         #endregion
     }
 }

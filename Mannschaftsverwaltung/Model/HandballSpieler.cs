@@ -95,6 +95,29 @@ namespace Mannschaftsverwaltung
         {
             return this.SpielSiege;
         }
+
+        public override int compareByName(Person p)
+        {
+            int result = -2;
+
+            string thisName = this.Name.Substring(0, 1);
+            string otherName = p.Name.Substring(0, 1);
+
+            if (Utils.getLetterCode(thisName) < Utils.getLetterCode(otherName))
+            {
+                result = -1;
+            }
+            else if (Utils.getLetterCode(thisName) == Utils.getLetterCode(otherName))
+            {
+                result = 0;
+            }
+            else if (Utils.getLetterCode(thisName) > Utils.getLetterCode(otherName))
+            {
+                result = 1;
+            }
+
+            return result;
+        }
         #endregion
     }
 }
