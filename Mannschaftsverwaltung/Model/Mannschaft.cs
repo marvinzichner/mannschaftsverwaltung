@@ -70,76 +70,42 @@ namespace Mannschaftsverwaltung
                 {
                     persons.Add(p);
                 }
-                else if (s == SearchTerm.FUSSBALLSPIELER)
+                else if (s == SearchTerm.FUSSBALLSPIELER
+                    && p.isFussballSpieler())
                 {
-                    if (p.isFussballSpieler())
-                    {
-                        persons.Add(p);
-                    }
+                    persons.Add(p);
                 }
-                else if (s == SearchTerm.HANDBALLSPIELER)
+                else if (s == SearchTerm.HANDBALLSPIELER
+                    && p.isHandballSpieler())
                 {
-                    if (p.isHandballSpieler())
-                    {
-                        persons.Add(p);
-                    }
+                    persons.Add(p);
                 }
-                else if (s == SearchTerm.TENNISSPIELER)
+                else if (s == SearchTerm.TENNISSPIELER
+                    && p.isTennisSpieler())
                 {
-                    if (p.isTennisSpieler())
-                    {
-                        persons.Add(p);
-                    }
+                    persons.Add(p);
                 }
             }
 
-            if(ob == OrderBy.ERFOLG_ASC)
+            for(int i = 0; i < persons.Count; i++)
             {
-                for(int i = 0; i < persons.Count; i++)
+                for (int j = 0; j < persons.Count; j++)
                 {
-                    for (int j = 0; j < persons.Count; j++)
-                    {
-                        Person p1 = persons[i];
-                        Person p2 = persons[j];
+                    Person p1 = persons[i];
+                    Person p2 = persons[j];
 
-                        if(p1.getSpielSiege() < p2.getSpielSiege()) {
-                            int idx1 = persons.IndexOf(p1);
-                            int idx2 = persons.IndexOf(p2);
-                            persons[idx1] = p2;
-                            persons[idx2] = p1;
-                        }
-                    }
-                }
-            }
-
-            if(ob == OrderBy.NAME_ASC)
-            {
-                for (int i = 0; i < persons.Count; i++)
-                {
-                    for (int j = 0; j < persons.Count; j++)
-                    {
-                        Person p1 = persons[i];
-                        Person p2 = persons[j];
-
-                        if (p1.compareByName(p2) < 0)
-                        {
-                            int idx1 = persons.IndexOf(p1);
-                            int idx2 = persons.IndexOf(p2);
-                            persons[idx1] = p2;
-                            persons[idx2] = p1;
-                        }
+                    if(ob == OrderBy.ERFOLG_ASC && p1.getSpielSiege() < p2.getSpielSiege() ||
+                        ob == OrderBy.NAME_ASC && p1.compareByName(p2) < 0) {
+                        int idx1 = persons.IndexOf(p1);
+                        int idx2 = persons.IndexOf(p2);
+                        persons[idx1] = p2;
+                        persons[idx2] = p1;
                     }
                 }
             }
 
             mannschaft.Personen = persons;
             return mannschaft.Personen;
-        }
-
-        public List<Person> sortByErfolg(SearchTerm searchTerm)
-        {
-            List<Person> persons = new List<Person>();
-            return persons;
         }
         #endregion
     }

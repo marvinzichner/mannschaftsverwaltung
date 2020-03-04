@@ -1,17 +1,17 @@
 ﻿<Properties StartupConfiguration="{58B1DC71-F148-44A0-8CFB-5D8DC6A2AA84}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Mannschaftsverwaltung/main.cs">
     <Files>
-      <File FileName="Mannschaftsverwaltung/main.cs" Line="87" Column="35" />
-      <File FileName="Mannschaftsverwaltung/Model/Person.cs" Line="92" Column="28" />
+      <File FileName="Mannschaftsverwaltung/main.cs" Line="88" Column="1" />
+      <File FileName="Mannschaftsverwaltung/Model/Person.cs" />
       <File FileName="Mannschaftsverwaltung/Model/Trainer.cs" />
       <File FileName="Mannschaftsverwaltung/Model/Physiotherapeut.cs" />
-      <File FileName="Mannschaftsverwaltung/Model/Mannschaft.cs" Line="129" Column="48" />
+      <File FileName="Mannschaftsverwaltung/Model/Mannschaft.cs" Line="86" Column="36" />
       <File FileName="Mannschaftsverwaltung/Model/SearchTerm.cs" />
-      <File FileName="Mannschaftsverwaltung/Model/Spieler.cs" Line="91" Column="56" />
+      <File FileName="Mannschaftsverwaltung/Model/Spieler.cs" />
       <File FileName="Mannschaftsverwaltung/Model/FussballSpieler.cs" />
       <File FileName="Mannschaftsverwaltung/Model/HandballSpieler.cs" />
       <File FileName="Mannschaftsverwaltung/Model/TennisSpieler.cs" />
-      <File FileName="Mannschaftsverwaltung/Model/OrderBy.cs" Line="6" Column="17" />
+      <File FileName="Mannschaftsverwaltung/Model/OrderBy.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
