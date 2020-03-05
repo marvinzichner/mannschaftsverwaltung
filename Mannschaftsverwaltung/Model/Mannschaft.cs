@@ -13,12 +13,28 @@ namespace Mannschaftsverwaltung
         #region Eigenschaften
         private List<Person> _personen;
         private string _name;
+        private OrderBy _sortRule;
+        public enum OrderBy
+        {
+            UNSORTED = 0,
+            ERFOLG_ASC = 1,
+            ERFOLG_DESC = 2,
+            NAME_ASC = 3
+        }
+        public enum SearchTerm
+        {
+            ALL = 0,
+            FUSSBALLSPIELER = 1,
+            TENNISSPIELER = 2,
+            HANDBALLSPIELER = 3
+        }
         #endregion
 
         #region Accessoren / Modifier
-        
+
         public string Name { get => _name; set => _name = value; }
         public List<Person> Personen { get => _personen; set => _personen = value; }
+        public OrderBy SortRule { get => _sortRule; set => _sortRule = value; }
         #endregion
 
         #region Konstruktoren
@@ -52,6 +68,13 @@ namespace Mannschaftsverwaltung
             this.Personen.Add(p);
             return this;
         }
+
+        public Mannschaft sortRule(OrderBy ob)
+        {
+            SortRule = ob;
+            return this;
+        }
+
         public Mannschaft addRange(List<Person> ps)
         {
             foreach(Person p in ps) { 
@@ -60,7 +83,7 @@ namespace Mannschaftsverwaltung
             return this;
         }
 
-        public List<Person> searchPattern(SearchTerm s, OrderBy ob)
+        public List<Person> searchPattern(SearchTerm s)
         {
             List<Person> persons = new List<Person>();
             Mannschaft mannschaft = new Mannschaft(this);
@@ -94,8 +117,8 @@ namespace Mannschaftsverwaltung
                     Person p1 = persons[i];
                     Person p2 = persons[j];
 
-                    if(ob == OrderBy.ERFOLG_ASC && p1.getSpielSiege() < p2.getSpielSiege() ||
-                        ob == OrderBy.NAME_ASC && p1.compareByName(p2) < 0) {
+                    if(SortRule == OrderBy.ERFOLG_ASC && p1.getSpielSiege() < p2.getSpielSiege() ||
+                        SortRule == OrderBy.NAME_ASC && p1.compareByName(p2) < 0) {
                         int idx1 = persons.IndexOf(p1);
                         int idx2 = persons.IndexOf(p2);
                         persons[idx1] = p2;

@@ -49,7 +49,6 @@
     <Compile Include="Model\Mannschaft.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Physiotherapeut.cs" />
-    <Compile Include="Model\OrderBy.cs" />
     <Compile Include="Model\Trainer.cs" />
     <Compile Include="Model\SpielerRolle.cs" />
     <Compile Include="Model\TennisSpieler.cs" />

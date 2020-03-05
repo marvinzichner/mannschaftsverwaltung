@@ -79,7 +79,8 @@ namespace Mannschaftsverwaltung
 
 
             Utils.generatePersonTable(
-                Koeln.searchPattern(SearchTerm.ALL, OrderBy.NAME_ASC));
+                Koeln.sortRule(Mannschaft.OrderBy.NAME_ASC)
+                    .searchPattern(Mannschaft.SearchTerm.ALL));
            
             Console.ReadKey();
         }
