@@ -15,26 +15,31 @@ namespace Mannschaftsverwaltung
     {
         #region Eigenschaften
         private string _name;
+        private SportArt _sportArt;
         #endregion
 
         #region Accessoren / Modifier
         public string Name { get => _name; set => _name = value; }
+        public SportArt SportArt { get => _sportArt; set => _sportArt = value; }
         #endregion
 
         #region Konstruktoren
         public Person()
         {
             Name = "Max Mustermann";
+            SportArt = SportArt.KEINE;
         }
 
         public Person(string name)
         {
             Name = name;
+            SportArt = SportArt.KEINE;
         }
 
         public Person(Person p)
         {
             Name = p.Name;
+            SportArt = p.SportArt;
         }
 
         #endregion
@@ -48,6 +53,11 @@ namespace Mannschaftsverwaltung
         public FussballSpieler toFussballSpieler()
         {
             return (FussballSpieler) this;
+        }
+
+        public SportArt getSportArtCode()
+        {
+            return this.SportArt;
         }
 
         public bool isTennisSpieler()
@@ -87,7 +97,7 @@ namespace Mannschaftsverwaltung
             return (Spieler)this;
         }
 
-        public abstract int getSpielSiege();
+        public abstract int compareBySpielSiege(Person p);
 
         public abstract int compareByName(Person p);
 
@@ -96,6 +106,12 @@ namespace Mannschaftsverwaltung
             this.Name = s;
             return this;
         }
+        public virtual Person sportArt(SportArt s)
+        {
+            this.SportArt = s;
+            return this;
+        }
+
         #endregion
     }
 }

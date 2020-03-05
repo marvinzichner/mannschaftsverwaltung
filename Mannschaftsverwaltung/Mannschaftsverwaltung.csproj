@@ -59,7 +59,6 @@
     <Compile Include="Model\Turnier.cs" />
     <Compile Include="Model\Verein.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Model\SearchTerm.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

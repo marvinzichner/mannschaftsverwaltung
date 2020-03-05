@@ -15,14 +15,12 @@ namespace Mannschaftsverwaltung
     {
         #region Eigenschaften
         private int _spielerNummer;
-        private SportArt _sportArt;
         private SpielerRolle _spielerRolle;
         private int _SpielSiege;
         #endregion
 
         #region Accessoren / Modifier
         public int SpielerNummer { get => _spielerNummer; set => _spielerNummer = value; }
-        public SportArt SportArt { get => _sportArt; set => _sportArt = value; }
         public SpielerRolle SpielerRolle { get => _spielerRolle; set => _spielerRolle = value; }
         public int SpielSiege { get => _SpielSiege; set => _SpielSiege = value; }
         #endregion
@@ -32,7 +30,6 @@ namespace Mannschaftsverwaltung
             :base()
         {
             SpielerNummer = -9999;
-            SportArt = SportArt.KEINE;
             SpielerRolle = SpielerRolle.KEINE;
             SpielSiege = 0;
         }
@@ -63,11 +60,6 @@ namespace Mannschaftsverwaltung
             return this;
         }
 
-        public Spieler sportArt(SportArt sa)
-        {
-            this.SportArt = sa;
-            return this;
-        }
         public Spieler spielerRolle(SpielerRolle sr)
         {
             this.SpielerRolle = sr;
@@ -88,7 +80,7 @@ namespace Mannschaftsverwaltung
             Console.WriteLine("  - " + this.Name + " (" + this.SpielerNummer + ")");
         }
 
-        public abstract int compareByErfolg(Spieler s);
+        public override abstract int compareBySpielSiege(Person p);
 
         public override abstract int compareByName(Person p);
         #endregion

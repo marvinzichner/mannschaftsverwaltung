@@ -22,65 +22,84 @@ namespace Mannschaftsverwaltung
             TennisSpieler Lars = new TennisSpieler();
             Trainer John = new Trainer();
             Physiotherapeut Thomas = new Physiotherapeut();
-            Trainer Zili = new Trainer();
+            FussballSpieler Zili = new FussballSpieler();
+            TennisSpieler Jeff = new TennisSpieler();
 
             Marvin
                 .name("Marvin Zichner")
+                .sportArt(SportArt.FUSSBALL)
                 .toFussballSpieler()
                 .isLeftFeet(true)
                 .spielerNummer(12)
                 .spielSiege(12)
-                .sportArt(SportArt.FUSSBALL)
                 .spielerRolle(SpielerRolle.STUERMER);
 
             Henry
                 .name("Henry C. Johnson")
+                .sportArt(SportArt.HANDBALL)
                 .toHandballSpieler()
                 .isLeftHand(false)
                 .spielerNummer(2)
                 .spielSiege(6)
-                .sportArt(SportArt.HANDBALL)
                 .spielerRolle(SpielerRolle.KEINE);
 
             Lars
                 .name("Lars T.-J. Smith")
+                .sportArt(SportArt.TENNIS)
                 .toTennisSpieler()
                 .isLeftHand(true)
                 .spielerNummer(1)
                 .spielSiege(11)
+                .spielerRolle(SpielerRolle.KEINE);
+
+            Jeff
+                .name("Jeff Miller")
                 .sportArt(SportArt.TENNIS)
+                .toTennisSpieler()
+                .isLeftHand(true)
+                .spielerNummer(2)
+                .spielSiege(2)
                 .spielerRolle(SpielerRolle.KEINE);
 
             John
                 .name("John de Reginald")
+                .sportArt(SportArt.KEINE)
                 .toTrainer()
                 .hasLicense(true)
                 .sportArt(SportArt.FUSSBALL);
 
             Zili
                 .name("Zili Huang")
-                .toTrainer()
-                .hasLicense(false)
-                .sportArt(SportArt.KEINE);
+                .sportArt(SportArt.FUSSBALL)
+                .toFussballSpieler()
+                .isLeftFeet(true)
+                .spielerNummer(12)
+                .spielSiege(23)
+                .spielerRolle(SpielerRolle.STUERMER);
 
             Thomas
                 .name("Thomas Britt")
+                .sportArt(SportArt.KEINE)
                 .toPhysiotherapeut()
-                .hasLicense(true)
-                .sportArt(SportArt.FUSSBALL);
+                .hasLicense(true);
 
             Koeln
+                .sportArt(SportArt.FUSSBALL)
                 .add(Marvin)
                 .add(Henry)
                 .add(Lars)
                 .add(John)
                 .add(Zili)
-                .add(Thomas);
+                .add(Thomas)
+                .add(Jeff);
 
 
             Utils.generatePersonTable(
-                Koeln.sortRule(Mannschaft.OrderBy.NAME_ASC)
-                    .searchPattern(Mannschaft.SearchTerm.ALL));
+                Koeln
+                    .rule(Mannschaft.OrderBy.ERFOLG_ASC)
+                    .rule(Mannschaft.SearchTerm.ALL)
+                    .enableGroupSort()
+                    .searchPattern());
            
             Console.ReadKey();
         }

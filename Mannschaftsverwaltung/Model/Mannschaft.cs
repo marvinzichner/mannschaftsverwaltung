@@ -14,6 +14,10 @@ namespace Mannschaftsverwaltung
         private List<Person> _personen;
         private string _name;
         private OrderBy _sortRule;
+        private int _orderTimes;
+        private SearchTerm _filterRule;
+        private SportArt _sportArt;
+        private bool _enableGrouping;
         public enum OrderBy
         {
             UNSORTED = 0,
@@ -35,6 +39,10 @@ namespace Mannschaftsverwaltung
         public string Name { get => _name; set => _name = value; }
         public List<Person> Personen { get => _personen; set => _personen = value; }
         public OrderBy SortRule { get => _sortRule; set => _sortRule = value; }
+        public SearchTerm FilterRule { get => _filterRule; set => _filterRule = value; }
+        public SportArt SportArt { get => _sportArt; set => _sportArt = value; }
+        public int OrderTimes { get => _orderTimes; set => _orderTimes = value; }
+        public bool EnableGrouping { get => _enableGrouping; set => _enableGrouping = value; }
         #endregion
 
         #region Konstruktoren
@@ -42,23 +50,43 @@ namespace Mannschaftsverwaltung
         {
             Name = "Musterverein";
             Personen = new List<Person>();
+            SortRule = OrderBy.UNSORTED;
+            FilterRule = SearchTerm.ALL;
+            SportArt = SportArt.KEINE;
+            OrderTimes = 0;
+            EnableGrouping = false;
         }
         public Mannschaft(string name)
         {
             Name = name;
             Personen = new List<Person>();
+            SortRule = OrderBy.UNSORTED;
+            FilterRule = SearchTerm.ALL;
+            SportArt = SportArt.KEINE;
+            OrderTimes = 0;
+            EnableGrouping = false;
         }
 
         public Mannschaft(string name, List<Person> personen) 
         {
             Name = name;
             Personen = personen;
+            SortRule = OrderBy.UNSORTED;
+            FilterRule = SearchTerm.ALL;
+            SportArt = SportArt.KEINE;
+            OrderTimes = 0;
+            EnableGrouping = false;
         }
 
         public Mannschaft(Mannschaft c) 
         {
             Name = c.Name;
             Personen = c.Personen;
+            SortRule = c.SortRule;
+            FilterRule = c.FilterRule;
+            SportArt = c.SportArt;
+            OrderTimes = c.OrderTimes;
+            EnableGrouping = c.EnableGrouping;
         }
         #endregion
 
@@ -69,9 +97,28 @@ namespace Mannschaftsverwaltung
             return this;
         }
 
-        public Mannschaft sortRule(OrderBy ob)
+        public Mannschaft rule(OrderBy ob)
         {
             SortRule = ob;
+            return this;
+        }
+        public Mannschaft enableGroupSort()
+        {
+            OrderTimes = 2;
+            EnableGrouping = true;
+            return this;
+        }
+
+
+        public Mannschaft sportArt(SportArt sa)
+        {
+            SportArt = sa;
+            return this;
+        }
+
+        public Mannschaft rule(SearchTerm st)
+        {
+            FilterRule = st;
             return this;
         }
 
@@ -83,46 +130,51 @@ namespace Mannschaftsverwaltung
             return this;
         }
 
-        public List<Person> searchPattern(SearchTerm s)
+        public List<Person> searchPattern()
         {
             List<Person> persons = new List<Person>();
             Mannschaft mannschaft = new Mannschaft(this);
 
             foreach(Person p in mannschaft.Personen) {
-                if (s == SearchTerm.ALL)
+                if (FilterRule == SearchTerm.ALL)
                 {
                     persons.Add(p);
                 }
-                else if (s == SearchTerm.FUSSBALLSPIELER
+                else if (FilterRule == SearchTerm.FUSSBALLSPIELER
                     && p.isFussballSpieler())
                 {
                     persons.Add(p);
                 }
-                else if (s == SearchTerm.HANDBALLSPIELER
+                else if (FilterRule == SearchTerm.HANDBALLSPIELER
                     && p.isHandballSpieler())
                 {
                     persons.Add(p);
                 }
-                else if (s == SearchTerm.TENNISSPIELER
+                else if (FilterRule == SearchTerm.TENNISSPIELER
                     && p.isTennisSpieler())
                 {
                     persons.Add(p);
                 }
             }
 
-            for(int i = 0; i < persons.Count; i++)
-            {
-                for (int j = 0; j < persons.Count; j++)
+           
+            for(int o = 1; o < OrderTimes; o++)
+            { 
+                for(int i = 0; i < persons.Count; i++)
                 {
-                    Person p1 = persons[i];
-                    Person p2 = persons[j];
+                    for (int j = 0; j < persons.Count; j++)
+                    {
+                        Person p1 = persons[i];
+                        Person p2 = persons[j];
 
-                    if(SortRule == OrderBy.ERFOLG_ASC && p1.getSpielSiege() < p2.getSpielSiege() ||
-                        SortRule == OrderBy.NAME_ASC && p1.compareByName(p2) < 0) {
-                        int idx1 = persons.IndexOf(p1);
-                        int idx2 = persons.IndexOf(p2);
-                        persons[idx1] = p2;
-                        persons[idx2] = p1;
+                        if(SortRule == OrderBy.ERFOLG_ASC && EnableGrouping && p1.getSportArtCode() < p2.getSportArtCode() ||
+                            SortRule == OrderBy.ERFOLG_ASC && !EnableGrouping && p1.compareBySpielSiege(p2) < 0 ||
+                            SortRule == OrderBy.NAME_ASC && p1.compareByName(p2) < 0) {
+                            int idx1 = persons.IndexOf(p1);
+                            int idx2 = persons.IndexOf(p2);
+                            persons[idx1] = p2;
+                            persons[idx2] = p1;
+                        }
                     }
                 }
             }
