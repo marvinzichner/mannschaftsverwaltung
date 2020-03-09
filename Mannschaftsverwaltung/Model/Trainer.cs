@@ -60,10 +60,16 @@ namespace Mannschaftsverwaltung
             return this.SportArt;
         }
 
+        public override int getSpielSiege()
+        {
+            return -1;
+        }
+
         public override int compareBySpielSiege(Person p)
         {
             return -1;
         }
+
         public override int compareByName(Person p)
         {
             int result = -2;

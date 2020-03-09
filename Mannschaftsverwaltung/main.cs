@@ -31,7 +31,7 @@ namespace Mannschaftsverwaltung
                 .toFussballSpieler()
                 .isLeftFeet(true)
                 .spielerNummer(12)
-                .spielSiege(12)
+                .spielSiege(66)
                 .spielerRolle(SpielerRolle.STUERMER);
 
             Henry
@@ -85,6 +85,7 @@ namespace Mannschaftsverwaltung
 
             Koeln
                 .sportArt(SportArt.FUSSBALL)
+                .flushPersonen()
                 .add(Marvin)
                 .add(Henry)
                 .add(Lars)
@@ -93,14 +94,25 @@ namespace Mannschaftsverwaltung
                 .add(Thomas)
                 .add(Jeff);
 
-
             Utils.generatePersonTable(
                 Koeln
                     .rule(Mannschaft.OrderBy.ERFOLG_ASC)
                     .rule(Mannschaft.SearchTerm.ALL)
                     .enableGroupSort()
-                    .searchPattern());
-           
+                    .applySearchPattern());
+                Koeln
+                    .printRules();
+
+            Console.WriteLine("");
+
+            Utils.generatePersonTable(
+               Koeln
+                   .rule(Mannschaft.OrderBy.NAME_ASC)
+                   .rule(Mannschaft.SearchTerm.ALL)
+                   .applySearchPattern());
+               Koeln
+                .printRules();
+
             Console.ReadKey();
         }
     }

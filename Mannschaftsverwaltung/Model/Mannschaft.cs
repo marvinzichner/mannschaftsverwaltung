@@ -122,6 +122,12 @@ namespace Mannschaftsverwaltung
             return this;
         }
 
+        public Mannschaft flushPersonen()
+        {
+            this.Personen = new List<Person>();
+            return this;
+        }
+
         public Mannschaft addRange(List<Person> ps)
         {
             foreach(Person p in ps) { 
@@ -130,7 +136,7 @@ namespace Mannschaftsverwaltung
             return this;
         }
 
-        public List<Person> searchPattern()
+        public List<Person> applySearchPattern()
         {
             List<Person> persons = new List<Person>();
             Mannschaft mannschaft = new Mannschaft(this);
@@ -179,8 +185,18 @@ namespace Mannschaftsverwaltung
                 }
             }
 
+            if(EnableGrouping)
+            {
+                EnableGrouping = false;
+            }
+
             mannschaft.Personen = persons;
             return mannschaft.Personen;
+        }
+
+        public void printRules()
+        {
+            Console.WriteLine("==>  [ OrderBy." + SortRule + " with SearchTerm." + FilterRule + " ]");
         }
         #endregion
     }

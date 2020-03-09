@@ -97,6 +97,8 @@ namespace Mannschaftsverwaltung
             return (Spieler)this;
         }
 
+        public abstract int getSpielSiege();
+
         public abstract int compareBySpielSiege(Person p);
 
         public abstract int compareByName(Person p);

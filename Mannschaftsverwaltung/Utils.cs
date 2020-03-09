@@ -14,15 +14,22 @@ namespace Mannschaftsverwaltung
     class Utils
     {
         #region Eigenschaften
+        private List<Person> _personen;
         #endregion
 
         #region Accessoren / Modifier
+        public List<Person> Personen { get => _personen; set => _personen = value; }
         #endregion
 
         #region Konstruktoren
         public Utils()
         {
+            Personen = new List<Person>();
+        }
 
+        public Utils(Utils u)
+        {
+            Personen = u.Personen;
         }
         #endregion
 
@@ -102,6 +109,18 @@ namespace Mannschaftsverwaltung
                     );
                 }
             }
+        }
+
+        public List<Person> flushPersonList()
+        {
+            this.Personen = new List<Person>();
+            return this.Personen;
+        }
+
+        public List<Person> addPerson(Person p)
+        {
+            this.Personen.Add(p);
+            return this.Personen;
         }
         #endregion
     }

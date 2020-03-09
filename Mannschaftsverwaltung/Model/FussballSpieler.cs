@@ -73,22 +73,27 @@ namespace Mannschaftsverwaltung
             Console.WriteLine("    Mein starker Fuss ist Links? " + this.IsLeftFeet);
         }
 
+        public override int getSpielSiege()
+        {
+            return this.SpielSiege;
+        }
+
         public override int compareBySpielSiege(Person p)
         {
             int compareResult = -1;
 
             if (p.isFussballSpieler() 
-                && this.SpielSiege < p.toFussballSpieler().SpielSiege)
+                && this.getSpielSiege() < p.getSpielSiege())
             {
                 compareResult = -1;
             }
             else if (p.isFussballSpieler() 
-                && this.SpielSiege == p.toFussballSpieler().SpielSiege)
+                && this.getSpielSiege() == p.getSpielSiege())
             {
                 compareResult = 0;
             }
             else if (p.isFussballSpieler() 
-                && this.SpielSiege < p.toFussballSpieler().SpielSiege)
+                && this.getSpielSiege() < p.getSpielSiege())
             {
                 compareResult = 1;
             }

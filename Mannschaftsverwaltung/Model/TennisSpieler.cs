@@ -74,22 +74,27 @@ namespace Mannschaftsverwaltung
             Console.WriteLine("    Tennis ist meine Leidenschaft");
         }
 
+        public override int getSpielSiege()
+        {
+            return this.SpielSiege;
+        }
+
         public override int compareBySpielSiege(Person p)
         {
             int compareResult = -1;
 
-            if (p.isTennisSpieler() 
-                && this.SpielSiege < p.toTennisSpieler().SpielSiege)
+            if (p.isFussballSpieler()
+                && this.getSpielSiege() < p.getSpielSiege())
             {
                 compareResult = -1;
             }
-            else if (p.isTennisSpieler() 
-                && this.SpielSiege == p.toTennisSpieler().SpielSiege)
+            else if (p.isFussballSpieler()
+                && this.getSpielSiege() == p.getSpielSiege())
             {
                 compareResult = 0;
             }
-            else if (p.isTennisSpieler() 
-                && this.SpielSiege < p.toTennisSpieler().SpielSiege)
+            else if (p.isFussballSpieler()
+                && this.getSpielSiege() < p.getSpielSiege())
             {
                 compareResult = 1;
             }

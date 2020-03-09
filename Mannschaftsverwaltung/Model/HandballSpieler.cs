@@ -72,22 +72,28 @@ namespace Mannschaftsverwaltung
             Console.WriteLine("    Ich habe auf dem Feld die Position " + this.SpielerRolle);
             Console.WriteLine("    Verwende ich beim Werfen die linke Hand? " + this.IsLeftHand);
         }
+
+        public override int getSpielSiege()
+        {
+            return this.SpielSiege;
+        }
+
         public override int compareBySpielSiege(Person p)
         {
             int compareResult = -1;
 
-            if (p.isHandballSpieler()
-                && this.SpielSiege < p.toHandballSpieler().SpielSiege)
+            if (p.isFussballSpieler()
+                && this.getSpielSiege() < p.getSpielSiege())
             {
                 compareResult = -1;
             }
-            else if (p.isHandballSpieler() 
-                && this.SpielSiege == p.toHandballSpieler().SpielSiege)
+            else if (p.isFussballSpieler()
+                && this.getSpielSiege() == p.getSpielSiege())
             {
                 compareResult = 0;
             }
-            else if (p.isHandballSpieler() 
-                && this.SpielSiege < p.toHandballSpieler().SpielSiege)
+            else if (p.isFussballSpieler()
+                && this.getSpielSiege() < p.getSpielSiege())
             {
                 compareResult = 1;
             }
